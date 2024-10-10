@@ -5,10 +5,9 @@ namespace FolderCreation.Features.ShowDisplayStatus;
 
 public static class ResultExtensionsForDisplayingStatus
 {
-    public static void ShowDisplayStatus(this Result<IReadOnlyList<ProcessedRow<Folder>>> result, Action<string> writer, Func<Folder, Func<Folder, Result>, Result> folderCreatorExecutor, Func<Folder, Result> folderCreator)
+    public static void ShowDisplayStatus(this Result<IReadOnlyList<ProcessedRow<Folder>>> result, Action<string> writer, Func<Folder, Result> folderCreator)
     {
         ArgumentNullException.ThrowIfNull(writer);
-        ArgumentNullException.ThrowIfNull(folderCreatorExecutor);
         ArgumentNullException.ThrowIfNull(folderCreator);
 
         if (!result.IsSuccess)
@@ -28,7 +27,7 @@ public static class ResultExtensionsForDisplayingStatus
                     }
                     else
                     {
-                        var resultCreatedFolder = folderCreatorExecutor(resultFolder.Value!, folderCreator);
+                        var resultCreatedFolder = folderCreator(resultFolder.Value!);
                         if (!resultCreatedFolder.IsSuccess)
                             writer($"{processedRow.RowNumber} - NOT-OK - {(resultCreatedFolder is null ? string.Empty : string.Join(", ", resultCreatedFolder.Errors))}");
                         else

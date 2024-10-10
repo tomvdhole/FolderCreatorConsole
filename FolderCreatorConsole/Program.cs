@@ -10,14 +10,14 @@ var location = Console.ReadLine();
 Console.WriteLine();
 Console.WriteLine();
 
+var createFolders = new CreateFolders(FolderCreator.Create);
+
 GetFoldersFromFile.Execute(location, System.IO.File.Exists)
                   .ShowDisplayStatus(Console.WriteLine, 
-                                     CreateFolders.Execute, 
-                                     FolderCreator.Create);
+                                     createFolders.Execute);
 
 Console.WriteLine();
 Console.WriteLine();
 Console.WriteLine($"Thank you for using FolderCreator!");
-
 
 
