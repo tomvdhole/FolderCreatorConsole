@@ -5,7 +5,7 @@ namespace FolderCreation.Features.GetFoldersFromFile;
 
 public static class GetFoldersFromFile
 {
-    public static Result<IReadOnlyList<ProcessedRow<Folder>>> Execute(string? pathToFileWithFolders, Func<string, bool> doesFileExists)
+    public static Result<IReadOnlyList<ProcessedRow<Folder>>> Retrieve(string? pathToFileWithFolders, Func<string, bool> doesFileExists)
     {
         ArgumentNullException.ThrowIfNull(doesFileExists);
 
