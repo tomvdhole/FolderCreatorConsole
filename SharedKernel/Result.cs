@@ -38,7 +38,7 @@ public sealed record Result<T> : Result
     }
 
     public static Result<T> Succeed(T? value)
-    => new(value, true, []);
+        => new(value, true, []);
 
     public static new Result<T> Failed(IList<IError> errors)
         => new(default, false, errors);

@@ -2,7 +2,7 @@
 
 namespace FolderCreation.DomainSharedBetweenFeatures;
 
-public sealed record class Folder
+public sealed class Folder
 {
     public string Name { get; }
 

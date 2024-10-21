@@ -11,7 +11,7 @@ public static class ResultExtensionsForDisplayingStatus
         ArgumentNullException.ThrowIfNull(folderCreator);
 
         if (!result.IsSuccess)
-            writer($"Error: {string.Join(", ", result.Errors)}");
+            writer($"{string.Join(", ", result.Errors).MakeErrorsUserFriendlyer()}");
         else
             foreach (var processedRow in result.Value!)
                 if (processedRow.DoNotProcess)

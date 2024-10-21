@@ -9,6 +9,9 @@ public sealed record class Error<T> : IError
         => ErrorType = errorType;
 
     public T ErrorType { get; }
+
+    public override string ToString()
+        => ErrorType.ToString();
 }
 
 

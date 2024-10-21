@@ -10,9 +10,9 @@ var location = Console.ReadLine();
 Console.WriteLine();
 Console.WriteLine();
 
-GetFoldersFromFile.Retrieve(location, System.IO.File.Exists)
-                  .ShowDisplayStatus(Console.WriteLine, 
-                                     FolderCreator.Create);
+FoldersFromFile.Get(location, System.IO.File.Exists)
+               .ShowDisplayStatus(Console.WriteLine, 
+                                  FolderCreator.Create);
 
 Console.WriteLine();
 Console.WriteLine();

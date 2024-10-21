@@ -3,9 +3,9 @@ using FolderCreation.DomainSharedBetweenFeatures;
 
 namespace FolderCreation.Features.GetFoldersFromFile;
 
-public static class GetFoldersFromFile
+public static class FoldersFromFile
 {
-    public static Result<IReadOnlyList<ProcessedRow<Folder>>> Retrieve(string? pathToFileWithFolders, Func<string, bool> doesFileExists)
+    public static Result<IReadOnlyList<ProcessedRow<Folder>>> Get(string? pathToFileWithFolders, Func<string, bool> doesFileExists)
     {
         ArgumentNullException.ThrowIfNull(doesFileExists);
 
